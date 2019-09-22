@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://jasonyang96.github.io/dash/",
   "dependencies": {
+    "@material-ui/core": "^4.4.3",
+    "@material-ui/styles": "^4.4.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.2"
