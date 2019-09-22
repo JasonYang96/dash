@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function App() {
+export default function App() {
   const classes = useStyles();
   return (
     <Container>
@@ -39,5 +39,3 @@ function App() {
     </Container>
   );
 }
-
-export default App;
