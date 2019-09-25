@@ -1,13 +1,20 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { init } from '@rematch/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Budget from './budget/Budget';
+import Income from './income/Income';
+import Saving from './saving/Saving';
+import * as models from './models';
+
+const store = init({
+  models,
+});
 
 const useStyles = makeStyles(theme => ({
   app: {
-    minHeight: "100vh",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -15,27 +22,21 @@ const useStyles = makeStyles(theme => ({
     fontSize: "calc(10px + 2vmin)",
     color: "white",
   },
-  paper: {
-    padding: theme.spacing(20),
-  }
 }));
 
 export default function App() {
   const classes = useStyles();
   return (
-    <Container>
-      <Grid container className={classes.app} spacing={5}>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <Typography>Dash Budget</Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <Typography>Dash Savings</Typography>
-          </Paper>
-        </Grid>
-      </Grid>
-    </Container>
+    <React.StrictMode>
+      <Provider store={store}>
+        <Container className={classes.app}>
+          <Grid container spacing={5}>
+            <Income />
+            <Budget />
+            <Saving />
+          </Grid>
+        </Container>
+      </Provider>
+    </React.StrictMode>
   );
 }
