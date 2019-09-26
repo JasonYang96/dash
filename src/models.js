@@ -61,7 +61,7 @@ export const money = {
         amount: 0,
         name: "Savings Goal",
       });
-      console.log(savings);
+
       return {
         ...state,
         savings: savings,

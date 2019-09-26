@@ -19,7 +19,6 @@ const mapDispatch = dispatch => ({
 });
 
 const Savings = props => {
-  console.log(props);
   const classes = useStyles();
   const savings = props.savings.map((saving, idx) =>
     <Saving saving={saving} idx={idx} />
