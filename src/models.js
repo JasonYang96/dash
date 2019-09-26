@@ -32,7 +32,7 @@ export const money = {
 
       return {...state, budgets: budgets}
     },
-    addAmount: (state, index, amount) => {
+    addBudgetAmount: (state, index, amount) => {
       let budgets = [...state.budgets];
       let income = state.income;
       budgets[index].amount += amount;
@@ -40,14 +40,30 @@ export const money = {
 
       return {...state, budgets: budgets, income: income}
     },
-    addSaving: state => {
-      if (state.savingsIndex === 5) return state;
+    updateSavingName: (state, index, name) => {
       let savings = [...state.savings];
-      savings.push(0);
+      savings[index].name = name;
+
+      return {...state, savings: savings}
+    },
+    deleteSaving: (state, idx) => {
+      let savings = [...state.savings];
+      savings.splice(idx, 1)
 
       return {
         ...state,
-        savingsIndex: state.savingsIndex + 1,
+        savings: savings,
+      }
+    },
+    addSaving: state => {
+      let savings = [...state.savings];
+      savings.push({
+        amount: 0,
+        name: "Savings Goal",
+      });
+      console.log(savings);
+      return {
+        ...state,
         savings: savings,
       }
     },

@@ -77,10 +77,10 @@ const Budget = props => {
         </Grid>
       </CardActions>
       <CardContent>
-        <Typography>Budget is {props.name}</Typography>
+        <Typography>Budget is ${props.amount}</Typography>
       </CardContent>
     </Card>
   )
 }
 
-export default connect(mapState, mapDispatch)(Budget)
+export default connect(mapState, mapDispatch)(Budget);

@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Budgets from './budget/Budgets';
 import Income from './income/Income';
-import Saving from './saving/Saving';
+import Savings from './saving/Savings';
 import * as models from './models';
 
 const store = init({
@@ -33,7 +33,7 @@ export default function App() {
           <Grid container spacing={5}>
             <Income />
             <Budgets />
-            <Saving />
+            <Savings />
           </Grid>
         </Container>
       </Provider>
