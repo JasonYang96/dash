@@ -6,17 +6,18 @@ export const money = {
   },
   reducers: {
     addBudget: state => {
-      if (state.budgetsIndex === 5) return state;
       let budgets = [...state.budgets];
-      budgets.push(0);
+      budgets.push({
+        amount: 0,
+        name: "Budget Name",
+      });
 
       return {
         ...state,
         budgets: budgets,
       }
     },
-    removeBudget: (state, idx) => {
-      if (state.budgetsIndex === 0) return state;
+    deleteBudget: (state, idx) => {
       let budgets = [...state.budgets];
       budgets.splice(idx, 1)
 
@@ -25,10 +26,19 @@ export const money = {
         budgets: budgets,
       }
     },
-    updateBudget: (state, index, amount) => {
-      let budget = [...state.budget];
-      budget[index] += amount;
-      return {...state, budget: budget}
+    updateBudgetName: (state, index, name) => {
+      let budgets = [...state.budgets];
+      budgets[index].name = name;
+
+      return {...state, budgets: budgets}
+    },
+    addAmount: (state, index, amount) => {
+      let budgets = [...state.budgets];
+      let income = state.income;
+      budgets[index].amount += amount;
+      income -= amount;
+
+      return {...state, budgets: budgets, income: income}
     },
     addSaving: state => {
       if (state.savingsIndex === 5) return state;

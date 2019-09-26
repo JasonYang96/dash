@@ -4,7 +4,7 @@ import { init } from '@rematch/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Budget from './budget/Budget';
+import Budgets from './budget/Budgets';
 import Income from './income/Income';
 import Saving from './saving/Saving';
 import * as models from './models';
@@ -32,7 +32,7 @@ export default function App() {
         <Container className={classes.app}>
           <Grid container spacing={5}>
             <Income />
-            <Budget />
+            <Budgets />
             <Saving />
           </Grid>
         </Container>

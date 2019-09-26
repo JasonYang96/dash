@@ -4,7 +4,7 @@ import { Grid, Paper, Typography, Button, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    padding: theme.spacing(20),
+    padding: theme.spacing(2),
   }
 }));
 
@@ -22,7 +22,7 @@ const Budget = props => {
     <Grid item xs={12}>
       <Paper className={classes.paper}>
         <Typography>{props.income}</Typography>
-        <Button onClick={props.addIncome}>Add Income</Button>
+        <Button variant="contained" onClick={props.addIncome}>Add Income</Button>
       </Paper>
     </Grid>
   )
