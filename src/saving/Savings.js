@@ -21,7 +21,7 @@ const mapDispatch = dispatch => ({
 const Savings = props => {
   const classes = useStyles();
   const savings = props.savings.map((saving, idx) =>
-    <Saving saving={saving} idx={idx} />
+    <Saving saving={saving} key={idx} idx={idx} />
   );
 
   return (

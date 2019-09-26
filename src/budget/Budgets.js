@@ -21,7 +21,7 @@ const mapDispatch = dispatch => ({
 const Budgets = props => {
   const classes = useStyles();
   const budgets = props.budgets.map((budget, idx) =>
-    <Budget budget={budget} idx={idx} />
+    <Budget budget={budget} key={idx} idx={idx} />
   );
 
   return (
